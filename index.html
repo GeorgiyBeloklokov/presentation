@@ -1,40 +1,354 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-		<title>reveal.js</title>
+    <title>reveal.js</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" />
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section
+          data-background-gradient="linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(19,9,121,1) 66%, rgba(5,0,255,1) 100%)"
+        >
+          <h2 class="r-fit-text">Grid System CSS</h2>
+		  <p>for rsschool by @georgiybeloklokov(git)</p>
+        </section>
+        <section
+          data-background-gradient="linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(19,9,121,1) 66%, rgba(5,0,255,1) 100%)"
+        >
+          <img src="assets/CSS-GRID.png" />
+        </section>
+        <section
+          data-background-gradient="linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(19,9,121,1) 63%, rgba(3,0,157,1) 100%)"
+        >
+          <h2>What is a grid?</h2>
+          <h4>Fixed and flexible track sizes</h4>
+          <h4>Item placement</h4>
+          <h4>Creation of additional tracks to hold content</h4>
+          <h4>Alignment control</h4>
+          <h4>Control of overlapping content</h4>
+        </section>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+        <section
+          data-background-gradient="linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(19,9,121,1) 63%, rgba(3,0,157,1) 100%)"
+        >
+          <section>
+            <h2>Grid container</h2>
+            <h4>Chapter 1</h4>
+          </section>
+          <section>
+            <img src="assets/slide1.jpg" />
+          </section>
+          <section>
+            <img src="assets/slide2.jpg" />
+          </section>
+        </section>
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+        <section
+          data-background-gradient="linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(19,9,121,1) 63%, rgba(3,0,157,1) 100%)"
+        >
+          <section>
+            <h2>Grid tracks</h2>
+            <h4>Chapter 2</h4>
+          </section>
+          <section
+            data-background-image="/assets/slide3.png"
+            style="color: black"
+          >
+            <div>
+              <p style="margin-bottom: 45vh">
+                We define rows and columns on our grid with the
+                <b>grid-template-rows</b> and
+                <b>grid-template-columns</b> properties.
+              </p>
+            </div>
+          </section>
+          <section>
+            <h4>Basic example</h4>
+            <p style="font-size: 21px">
+              I can add to our earlier example by adding the
+              <b>grid-template-columns</b> property, then defining the size of
+              the column tracks. I have now created a grid with three
+              200-pixel-wide column tracks. The child items will be laid out on
+              this grid one in each grid cell.
+            </p>
+            <img style="height: 60vh" src="/assets/slide4.jpg" />
+          </section>
+          <section>
+            <h4>The fr unit</h4>
+            <p style="font-size: 21px">
+              Tracks can be defined using any length unit. Grid also introduces
+              an additional length unit to help us create flexible grid tracks.
+              The new fr unit represents a fraction of the available space in
+              the grid container. The next grid definition would create three
+              equal width tracks that grow and shrink according to the available
+              space.
+            </p>
+            <img style="height: 60vh" src="/assets/slide5.jpg" />
+          </section>
+          <section>
+            <h4>Unequal sizes</h4>
+            <p style="font-size: 21px">
+              In this next example, we create a definition with a 2fr track then
+              two 1fr tracks. The available space is split into four. Two parts
+              are given to the first track and one part each to the next two
+              tracks.
+            </p>
+            <img style="height: 60vh" src="/assets/slide6.jpg" />
+          </section>
+          <section>
+            <h4>Mixing flexible and absolute sizes</h4>
+            <p style="font-size: 21px">
+              In this final example, we mix absolute sized tracks with fr units.
+              The first track is 500 pixels, so the fixed width is taken away
+              from the available space. The remaining space is divided into
+              three and assigned in proportion to the two flexible tracks.F
+            </p>
+            <img style="height: 60vh" src="/assets/slide7.jpg" />
+          </section>
+          <section>
+            <h4>Track listings with repeat() notation</h4>
+            <p style="font-size: 22px">
+              Large grids with many tracks can use the repeat() notation, to
+              repeat all or a section of the track listing. For example the grid
+              definition:
+            </p>
+            <img style="height: 17vh" src="/assets/slide8.jpg" />
+            <img style="height: 17vh" src="/assets/slide9.jpg" />
+            <img style="height: 17vh" src="/assets/slide10.jpg" />
+            <img style="height: 17vh" src="/assets/slide11.jpg" />
+          </section>
+          <section>
+            <h4>Implicit and explicit grids</h4>
+            <p style="font-size: 22px">
+              You can also define a set size for tracks created in the implicit
+              grid with the grid-auto-rows and grid-auto-columns properties. In
+              this example, we use grid-auto-rows to ensure that tracks created
+              in the implicit grid are 200 pixels tall.
+            </p>
+            <img style="height: 22vh; margin: 0" src="/assets/slide12.jpg" />
+            <img style="height: 22vh; margin: 0" src="/assets/slide13.jpg" />
+            <img style="height: 28vh; margin: 0" src="/assets/slide14.jpg" />
+          </section>
+          <section>
+            <h4>Track sizing and minmax</h4>
+            <p style="font-size: 22px">
+              Grid automatically creates rows that will be a minimum of 100
+              pixels tall, and a maximum of auto. Using auto means that the size
+              will look at the content size and will stretch to give space for
+              the tallest item in a cell, in this row.
+            </p>
+            <img style="height: 22vh; margin: 0" src="/assets/slide15.jpg" />
+            <img style="height: 22vh; margin: 0" src="/assets/slide15.jpg" />
+            <img style="height: 28vh; margin: 0" src="/assets/slide17.jpg" />
+          </section>
+        </section>
+        <section
+          data-background-gradient="linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(19,9,121,1) 63%, rgba(3,0,157,1) 100%)"
+        >
+          <section>
+            <h2>Grid lines</h2>
+            <h4>Chapter 3</h4>
+          </section>
+          <section>
+            <h4>Grid lines</h4>
+            <p style="font-size: 22px">
+              Grid gives us numbered lines to use when positioning items. In our
+              three column, two row grid we have four column lines.
+            </p>
+            <img style="height: 48vh; margin: 0" src="/assets/slide18.jpg" />
+          </section>
+          <section>
+            <h4>Positioning items against lines</h4>
+            <p style="font-size: 19px; margin: 0">
+              Placing the first two items on our three column track grid. the
+              first item is placed against column line 1, and spans to column
+              line 4, which in our case is the far-right line on the grid. It
+              begins at row line 1 and ends at row line 3, therefore spanning
+              two row tracks.
+            </p>
+            <p style="font-size: 19px; margin: 25px 0">
+              The second item starts on grid column line 1, and spans one track.
+              This is the default so I do not need to specify the end line. It
+              also spans two row tracks from row line 3 to row line 5. The other
+              items will place themselves into empty spaces on the grid.
+            </p>
+            <img style="height: 24vh; margin: 0" src="/assets/slide19.jpg" />
+            <img style="height: 35vh; margin: 0" src="/assets/slide20.jpg" />
+            <img style="height: 28vh; margin: 0" src="/assets/slide21.jpg" />
+          </section>
+          <section>
+            <h4>Line-positioning shorthands</h4>
+            <p style="font-size: 22px">
+              The value before the forward slash character (/) is the start
+              line, the value after the end line. You can omit the end value if
+              the area only spans one track.
+            </p>
+
+            <img style="height: 24vh; margin: 0" src="/assets/slide19.jpg" />
+            <img style="height: 35vh; margin: 0" src="/assets/slide22.jpg" />
+            <img style="height: 28vh; margin: 0" src="/assets/slide21.jpg" />
+          </section>
+        </section>
+        <section
+          data-background-gradient="linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(19,9,121,1) 63%, rgba(3,0,157,1) 100%)"
+        >
+          <section>
+            <h2>Grid cells</h2>
+            <h4>Chapter 4</h4>
+          </section>
+          <section>
+            <h4>Grid cells</h4>
+            <p style="font-size: 22px">
+              A grid cell is the smallest unit on a grid. Conceptually it is
+              like a table cell.
+            </p>
+            <img style="height: 48vh" src="/assets/slide23.jpg" />
+          </section>
+        </section>
+        <section
+          data-background-gradient="linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(19,9,121,1) 63%, rgba(3,0,157,1) 100%)"
+        >
+          <section>
+            <h2>Grid areas</h2>
+            <h4>Chapter 5</h4>
+          </section>
+          <section>
+            <h4>Grid areas</h4>
+            <p style="font-size: 22px">
+              Items can span one or more cells both by row or by column, and
+              this creates a grid area.
+            </p>
+            <img style="height: 48vh" src="/assets/slide24.jpg" />
+          </section>
+        </section>
+        <section
+          data-background-gradient="linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(19,9,121,1) 63%, rgba(3,0,157,1) 100%)"
+        >
+          <section>
+            <h2>Gutters</h2>
+            <h4>Chapter 6</h4>
+          </section>
+          <section>
+            <h4>Gutters</h4>
+            <p style="font-size: 22px">
+              Gutters or alleys between grid cells can be created using the
+              column-gap and row-gap properties, or the shorthand gap.
+            </p>
+            <img style="height: 24vh; margin: 0" src="/assets/slide25.jpg" />
+            <img style="height: 30vh; margin: 0" src="/assets/slide26.jpg" />
+            <img style="height: 28vh; margin: 0" src="/assets/slide27.jpg" />
+          </section>
+        </section>
+        <section
+          data-background-gradient="linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(19,9,121,1) 63%, rgba(3,0,157,1) 100%)"
+        >
+          <section>
+            <h2>Nesting grids</h2>
+            <h4>Chapter 7</h4>
+          </section>
+          <section>
+            <h4>Nesting grids</h4>
+            <p style="font-size: 22px">
+              I have the three-column grid. In this case the first item has some
+              sub-items. As these items are not direct children of the grid they
+              do not participate in grid layout and so display in a normal
+              document flow.
+            </p>
+            <img style="height: 48vh" src="/assets/slide28.jpg" />
+          </section>
+          <section>
+            <h4>Nesting without subgrid</h4>
+            <p style="font-size: 22px">
+              If I set box1 to display: grid I can give it a track definition
+              and it too will become a grid. The items then lay out on this new
+              grid. In this case the nested grid has no relationship to the
+              parent. It has not inherited the gap of the parent and the lines
+              in the nested grid do not align to the lines in the parent grid.
+            </p>
+
+            <img style="height: 25vh; margin: 0" src="/assets/slide29.jpg" />
+            <img style="height: 25vh; margin: 0" src="/assets/slide30.jpg" />
+            <img style="height: 25vh; margin: 0" src="/assets/slide31.jpg" />
+            <img style="height: 25vh; margin: 0" src="/assets/slide32.jpg" />
+            <img style="height: 25vh; margin: 0" src="/assets/slide33.jpg" />
+          </section>
+          <section>
+            <h4>Subgrid</h4>
+            <p style="font-size: 22px">
+              we would edit the above nested grid example to change the track
+              definition of grid-template-columns: repeat(3, 1fr), to
+              grid-template-columns: subgrid. The nested grid will then use the
+              parent grid tracks to layout items.
+            </p>
+            <!-- <img style="height: 48vh" src="/assets/slide34.jpg" /> -->
+            <pre><code>.box1 {
+				grid-column-start: 1;
+				grid-column-end: 4;
+				grid-row-start: 1;
+				grid-row-end: 3;
+				display: grid;
+				grid-template-columns: subgrid;
+			  }</code></pre>
+          </section>
+        </section>
+        <section
+          data-background-gradient="linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(19,9,121,1) 63%, rgba(3,0,157,1) 100%)"
+        >
+          <section>
+            <h2>Layering items with z-index</h2>
+            <h4>Chapter 8</h4>
+          </section>
+          <section>
+            <h4>Overlapping without z-index</h4>
+            <p style="font-size: 22px">
+              In example with items positioned by line number, we can make two
+              items overlap. The item box2 is now overlapping box1, it displays
+              on top as it comes later in the source order.
+            </p>
+            <img style="height: 40vh; margin: 0" src="/assets/slide36.jpg" />
+            <img style="height: 25vh; margin: 0" src="/assets/slide35.jpg" />
+            <img style="height: 25vh; margin: 0" src="/assets/slide37.jpg" />
+          </section>
+          <section>
+            <h4>Controlling the order</h4>
+            <p style="font-size: 22px">
+              We can control the order in which items stack up by using the
+              z-index property - just like positioned items. If we give box2 a
+              lower z-index than box1 it will display below box1 in the stack.
+            </p>
+            <img style="height: 40vh; margin: 0" src="/assets/slide38.jpg" />
+            <img style="height: 35vh; margin: 0" src="/assets/slide39.jpg" />
+          </section>
+        </section>
+      </div>
+    </div>
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
 </html>
